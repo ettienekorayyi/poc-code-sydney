@@ -1,0 +1,10 @@
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .results {
+    border: solid 1px red;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  /* Desktop View */
+}
