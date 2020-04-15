@@ -1,12 +1,17 @@
 import React from 'react'
-import Search from '../Search'
 import './navbar.css'
+import Logo from '../../assets/logo.png'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const NavBar = () => {
   return (
-    <div>
-      <h1>NavBar COMPONENT</h1>
-      <Search />
+    <div className='navbar'>
+      <div className='logo-section'>
+        <img src={Logo} className='logo' alt='code sydney logo' />
+      </div>
+      <div className='navigation'>
+        <GiHamburgerMenu className='icon' />
+      </div>
     </div>
   )
 }
