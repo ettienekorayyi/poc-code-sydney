@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './navbar.css'
 import Logo from '../../assets/logo.png'
+import Engramar from '../../assets/engramar.png'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { MdClear } from 'react-icons/md'
 import { FaSearch, FaUserPlus } from 'react-icons/fa'
@@ -43,9 +44,9 @@ const NavBar = () => {
 
           <div className='dropdown-section loggedin-user'>
             <div className='dropdown-icon'>
-              <FaUserPlus className='navigation-icon' />
+              <img src={Engramar} className='avatar' alt='Photo of Engramar' />
             </div>
-            <div className='dropdown-description'>Engrammar B</div>
+            <div className='engramar'>Engrammar B</div>
           </div>
         </div>
       )}

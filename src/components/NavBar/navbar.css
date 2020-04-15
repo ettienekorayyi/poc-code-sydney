@@ -20,7 +20,7 @@
   }
 
   .dropdown-menu {
-    height: 120px;
+    height: 125px;
     width: 100%;
     border-bottom: 0.5px solid grey;
     margin-top: 10px;
@@ -46,6 +46,7 @@
 
   .dropdown-section {
     display: flex;
+    cursor: pointer;
   }
 
   .dropdown-icon {
@@ -60,6 +61,13 @@
     margin-top: 5px;
   }
 
+  .engramar {
+    flex: 5;
+    font-weight: bold;
+    color: #355878;
+    margin-top: 8px;
+  }
+
   .navigation-icon {
     font-size: 25px;
     color: #355878;
@@ -68,7 +76,13 @@
 
   .loggedin-user {
     background-color: #f8f9f9;
-    padding: 10px 0 10px 0;
+    padding: 8px 0 8px 0;
     margin-top: 7px;
+  }
+
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
   }
 }
