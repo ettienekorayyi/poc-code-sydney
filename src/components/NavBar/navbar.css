@@ -1,0 +1,88 @@
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .navbar {
+    box-shadow: 0 3px 1px -2px gray;
+    height: 55px;
+    width: 100%;
+    display: flex;
+    padding: 5px;
+  }
+
+  .logo-section {
+    flex: 1;
+  }
+
+  .navigation {
+    flex: 5;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 12px;
+  }
+
+  .dropdown-menu {
+    height: 125px;
+    width: 100%;
+    border-bottom: 0.5px solid grey;
+    margin-top: 10px;
+  }
+
+  .logo {
+    width: 50px;
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+
+  .icon {
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .close-icon {
+    font-size: 40px;
+    cursor: pointer;
+    margin-top: -5px;
+    margin-right: -7px;
+  }
+
+  .dropdown-section {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .dropdown-icon {
+    flex: 1;
+    text-align: center;
+  }
+
+  .dropdown-description {
+    flex: 5;
+    font-weight: bold;
+    color: #355878;
+    margin-top: 7px;
+  }
+
+  .engramar {
+    flex: 5;
+    font-weight: bold;
+    color: #355878;
+    margin-top: 8px;
+  }
+
+  .navigation-icon {
+    font-size: 25px;
+    color: #355878;
+    margin-top: 2px;
+  }
+
+  .loggedin-user {
+    background-color: #f8f9f9;
+    padding: 8px 0 8px 0;
+    margin-top: 7px;
+  }
+
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+}
