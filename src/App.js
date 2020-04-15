@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import MentorState from './context/MentorState'
+import MentorState from './context/mentorContext/MentorState'
 import Home from './components/Home'
 import Mentor from './components/Mentor'
 

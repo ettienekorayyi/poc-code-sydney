@@ -1,0 +1,12 @@
+/* Common CSS */
+body {
+  height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+}
+
+@media screen and (min-width: 900px) {
+  /* Desktop View */
+}

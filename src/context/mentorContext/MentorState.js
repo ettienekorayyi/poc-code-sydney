@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import MentorsContext from './MentorsContext'
+import MentorContext from './MentorContext'
 import MentorReducer from './MentorReducer'
 
 const MentorState = (props) => {
@@ -58,9 +58,9 @@ const MentorState = (props) => {
   const [state, dispatch] = useReducer(MentorReducer, initialState)
 
   return (
-    <MentorsContext.Provider value={{ mentors: state.mentors }}>
+    <MentorContext.Provider value={{ mentors: state.mentors }}>
       {props.children}
-    </MentorsContext.Provider>
+    </MentorContext.Provider>
   )
 }
 
