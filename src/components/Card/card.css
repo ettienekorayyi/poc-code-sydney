@@ -1,0 +1,10 @@
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .card {
+    max-width: 40%;
+    min-width: 40%;
+    border: solid 2px black;
+    color: red;
+    margin-bottom: 1rem;
+  }
+}

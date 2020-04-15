@@ -8,7 +8,15 @@ const Results = () => {
 
   return (
     <div className="results">
-      <Card />
+      {mentors.map((mentor) => (
+        <Card
+          id={mentor.id}
+          key={mentor.id}
+          photo={mentor.photo}
+          fullName={mentor.fullName}
+          title={mentor.title}
+        />
+      ))}
     </div>
   );
 };
