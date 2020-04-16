@@ -17,7 +17,7 @@ const Search = () => {
       </div>
 
       <div className='search-button'>
-        <button>Search</button>
+        <button className='button'>Search</button>
       </div>
     </div>
   )
