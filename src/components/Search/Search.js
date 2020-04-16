@@ -3,8 +3,22 @@ import './search.css'
 
 const Search = () => {
   return (
-    <div>
-      <h1>Search Component</h1>
+    <div className='search'>
+      <div className='form-wrapper'>
+        <div className='select-box'>
+          <select>
+            <option value='name'>Name</option>
+            <option value='title'>Title</option>
+          </select>
+        </div>
+        <div className='search-bar'>
+          <input type='text' />
+        </div>
+      </div>
+
+      <div className='search-button'>
+        <button>Search</button>
+      </div>
     </div>
   )
 }
