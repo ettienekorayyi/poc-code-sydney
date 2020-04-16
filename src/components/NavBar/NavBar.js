@@ -44,7 +44,7 @@ const NavBar = () => {
 
           <div className='dropdown-section loggedin-user'>
             <div className='dropdown-icon'>
-              <img src={Engramar} className='avatar' alt='Photo of Engramar' />
+              <img src={Engramar} className='avatar' alt='Engramar' />
             </div>
             <div className='engramar'>Engrammar B</div>
           </div>

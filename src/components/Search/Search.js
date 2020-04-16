@@ -23,7 +23,8 @@ const Search = () => {
       <div className='results-section'>
         <h2>Search Results</h2>
         <div className='search-results'>
-          We found <strong>10 mentors</strong> matching your search.
+          We found <strong className='result'>10 mentors</strong> matching your
+          search.
         </div>
       </div>
     </div>
