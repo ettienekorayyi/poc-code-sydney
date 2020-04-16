@@ -1,0 +1,84 @@
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .search {
+    margin-top: 25px;
+    padding: 0 10px 0 18px;
+    color: #355878;
+  }
+
+  .form-wrapper {
+    display: flex;
+  }
+
+  .select-box {
+    flex: 1.2;
+    position: relative;
+  }
+
+  .select-box select {
+    height: 44px;
+    padding: 10px 15px;
+    line-height: 22px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid #355878;
+    appearance: none;
+  }
+
+  .select-box:after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -4px;
+    border-top: 8px solid #355878;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
+
+  .search-bar {
+    flex: 3;
+    text-align: end;
+  }
+
+  input[type='text'],
+  select {
+    width: 97%;
+    padding: 12px 10px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #355878;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #355878;
+    font-size: 14px;
+  }
+
+  .button {
+    background-color: #355878; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0 4px 0;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .results-section {
+    margin-top: 20px;
+  }
+
+  .search-results {
+    margin: 15px 0;
+    font-size: 14px;
+  }
+
+  .result {
+    font-weight: 800;
+  }
+}
