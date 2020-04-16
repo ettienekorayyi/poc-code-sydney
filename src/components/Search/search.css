@@ -3,6 +3,7 @@
   .search {
     margin-top: 25px;
     padding: 0 10px 0 18px;
+    color: #355878;
   }
 
   .form-wrapper {
@@ -66,5 +67,14 @@
     cursor: pointer;
     width: 100%;
     border-radius: 4px;
+  }
+
+  .results-section {
+    margin-top: 20px;
+  }
+
+  .search-results {
+    margin: 15px 0;
+    font-size: 14px;
   }
 }

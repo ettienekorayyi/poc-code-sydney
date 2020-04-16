@@ -19,6 +19,13 @@ const Search = () => {
       <div className='search-button'>
         <button className='button'>Search</button>
       </div>
+
+      <div className='results-section'>
+        <h2>Search Results</h2>
+        <div className='search-results'>
+          We found <strong>10 mentors</strong> matching your search.
+        </div>
+      </div>
     </div>
   )
 }
