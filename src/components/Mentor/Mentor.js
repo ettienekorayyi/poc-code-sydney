@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import './mentor.css'
-import MentorContext from '../../context/MentorsContext';
+import MentorContext from '../../context/mentorContext/MentorContext'
 
 const Mentor = () => {
-  const mentors = useContext(MentorContext);
-  console.log(mentors);
+  const mentors = useContext(MentorContext)
+  console.log(mentors)
   return (
     <div>
       <h1>Mentor COMPONENT</h1>
       <ul>
-        {mentors.map(mentor => (
+        {mentors.map((mentor) => (
           <li key={mentor.id}>{mentor.fullName}</li>
         ))}
       </ul>
@@ -18,7 +18,3 @@ const Mentor = () => {
 }
 
 export default Mentor
-
-
-
-

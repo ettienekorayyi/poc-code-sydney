@@ -1,8 +1,8 @@
 import React, { useReducer, useEffect, useState } from 'react'
-import api from '../api/mentors-api'
-import MentorContext from '../context/MentorsContext'
+import api from '../../api/mentors-api'
+import MentorContext from './MentorContext'
 import MentorReducer from './MentorReducer'
-import Mentor from '../components/Mentor/Mentor'
+import Mentor from '../../components/Mentor'
 
 const MentorState = (props) => {
   let initialState = { mentors: [] }
