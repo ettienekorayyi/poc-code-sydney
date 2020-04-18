@@ -19,6 +19,11 @@ const Mentor = () => {
           {mentorLocation}, Australia
         </div>
 
+        <div className='action-buttons'>
+          <button className='btn'>Edit</button>
+          <button className='btn delete'>Delete</button>
+        </div>
+
         <div className='panel'>
           <div className='panel-header'>
             <div className='panel-location'>
