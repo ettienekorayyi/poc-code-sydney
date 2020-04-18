@@ -14,6 +14,22 @@ const Mentor = () => {
           <MdLocationOn className='location-marker' />
           Wolloomooloo, NSW
         </div>
+
+        <div className='panel'>
+          <div className='panel-header'>
+            <div className='panel-location'>
+              <MdLocationOn />
+            </div>
+
+            <div className='panel-location-text'>Location</div>
+          </div>
+          <div className='panel-content'>
+            <img
+              src='https://maps.googleapis.com/maps/api/staticmap?center=Sydney,AU&zoom=15&size=400x300&maptype=roadmap&markers=color:red%7Clabel:M%7CSydney,AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck'
+              className='map'
+            />
+          </div>
+        </div>
       </div>
     </div>
   )
