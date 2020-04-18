@@ -2,8 +2,13 @@ import React from 'react'
 import './mentor.css'
 import Engramar from '../../assets/engramar.png'
 import { MdLocationOn } from 'react-icons/md'
+import { location } from '../../constants'
 
 const Mentor = () => {
+  const mentorLocation = location[Math.floor(Math.random() * location.length)]
+
+  console.log(mentorLocation)
+
   return (
     <div className='mentor'>
       <div className='profile'>
@@ -12,7 +17,7 @@ const Mentor = () => {
         <div>Software Engineer</div>
         <div className='location'>
           <MdLocationOn className='location-marker' />
-          Wolloomooloo, NSW
+          {mentorLocation}, Australia
         </div>
 
         <div className='panel'>
@@ -25,7 +30,7 @@ const Mentor = () => {
           </div>
           <div className='panel-content'>
             <img
-              src='https://maps.googleapis.com/maps/api/staticmap?center=Sydney,AU&zoom=15&size=400x300&maptype=roadmap&markers=color:red%7Clabel:M%7CSydney,AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck'
+              src={`https://maps.googleapis.com/maps/api/staticmap?center=${mentorLocation},AU&zoom=15&size=400x250&maptype=roadmap&markers=color:red%7Clabel:M%7C${mentorLocation},AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck`}
               className='map'
             />
           </div>
