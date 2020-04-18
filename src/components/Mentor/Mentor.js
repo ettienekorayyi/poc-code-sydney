@@ -11,7 +11,7 @@ const Mentor = () => {
   return (
     <div className='mentor'>
       <div className='profile'>
-        <img src={Engramar} className='mentor-photo' alt='Engramar' />
+        <img src={Engramar} className='mentor-photo' alt='mentor profile' />
         <div className='mentor-name'>Engramar B</div>
         <div>Software Engineer</div>
         <div className='location'>
@@ -32,7 +32,7 @@ const Mentor = () => {
             <div className='panel-location-text'>Location</div>
           </div>
           <div className='panel-content'>
-            <img src={mapURL} className='map' />
+            <img src={mapURL} className='map' alt='map' />
           </div>
         </div>
 
