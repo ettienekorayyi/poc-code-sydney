@@ -15,7 +15,6 @@ const MentorState = (props) => {
     return api
       .get('/v1/mentors/')
       .then((response) => {
-        console.log(response.data.data);
         dispatch({ type: 'SUCCESS', payload: response.data.data.mentors });
       })
       .catch((err) => {
