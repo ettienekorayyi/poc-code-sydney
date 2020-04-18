@@ -1,7 +1,7 @@
 import React from 'react'
 import './mentor.css'
 import Engramar from '../../assets/engramar.png'
-import { MdLocationOn } from 'react-icons/md'
+import { MdLocationOn, MdAccountCircle } from 'react-icons/md'
 import { location } from '../../constants'
 
 const Mentor = () => {
@@ -28,6 +28,21 @@ const Mentor = () => {
           </div>
           <div className='panel-content'>
             <img src={mapURL} className='map' />
+          </div>
+        </div>
+
+        <div className='panel'>
+          <div className='panel-header'>
+            <div className='panel-location'>
+              <MdAccountCircle />
+            </div>
+            <div className='panel-location-text'>Description</div>
+          </div>
+          <div className='panel-content mentor-description'>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
+            necessitatibus libero exercitationem, non, amet sunt ab nam
+            doloremque, est eum ducimus odio odit aliquid unde. Ratione dolorum
+            iusto voluptate blanditiis!
           </div>
         </div>
       </div>
