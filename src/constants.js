@@ -1,0 +1,25 @@
+const location = [
+  'Wooloomooloo',
+  'Marrickville',
+  'Ashfield',
+  'Strathfield',
+  'Sydenham',
+  'Newtown',
+  'Sydney',
+  'Lidcombe',
+  'Parramatta',
+  'Liverpool',
+  'Manly',
+  'Chatswood',
+  'Bondi',
+  'Asquith',
+  'Cronulla',
+  'Coogee',
+  'Campsie',
+  'Bronte',
+  'Drummoyne',
+  'Dural',
+  'Daceyville',
+]
+
+export { location }
