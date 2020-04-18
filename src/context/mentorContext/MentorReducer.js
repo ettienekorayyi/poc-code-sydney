@@ -2,12 +2,13 @@ const MentorReducer = (state, action) => {
   switch (action.type) {
     case 'SUCCESS':
       return {
+        ...state,
         mentors: action.payload,
         error: ''
       }
     case 'ERROR':
       return {
-        data: action.payload,
+        ...state,
         error: action.error
       }
     default:
