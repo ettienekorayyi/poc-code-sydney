@@ -54,5 +54,4 @@ const Mentor = () => {
     </div>
   )
 }
-
 export default Mentor
