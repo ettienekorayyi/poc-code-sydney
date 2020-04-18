@@ -13,7 +13,9 @@ const NavBar = () => {
     <div>
       <div className='navbar'>
         <div className='logo-section'>
-          <img src={Logo} className='logo' alt='code sydney logo' />
+          <a href='/'>
+            <img src={Logo} className='logo' alt='code sydney logo' />
+          </a>
         </div>
         <div className='navigation'>
           {!isHidden && (
@@ -29,12 +31,14 @@ const NavBar = () => {
       </div>
       {isHidden && (
         <div className='dropdown-menu'>
-          <div className='dropdown-section'>
-            <div className='dropdown-icon'>
-              <FaSearch className='navigation-icon' />
+          <a href='/'>
+            <div className='dropdown-section'>
+              <div className='dropdown-icon'>
+                <FaSearch className='navigation-icon' />
+              </div>
+              <div className='dropdown-description'>Search</div>
             </div>
-            <div className='dropdown-description'>Search</div>
-          </div>
+          </a>
           <div className='dropdown-section'>
             <div className='dropdown-icon'>
               <FaUserPlus className='navigation-icon' />
