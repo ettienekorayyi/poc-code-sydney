@@ -2,11 +2,7 @@ import React from 'react'
 import './mentor.css'
 
 const Mentor = () => {
-  return (
-    <div>
-      <h1>Mentor COMPONENT</h1>
-    </div>
-  )
+  return <div>HELLO MENTOR</div>
 }
 
 export default Mentor
