@@ -1,29 +1,30 @@
-import React, { useReducer, useEffect, useState } from 'react'
-import api from '../../api/mentors-api'
+import React, { useReducer, useEffect } from 'react'
 import MentorContext from './MentorContext'
 import MentorReducer from './MentorReducer'
-import Mentor from '../../components/Mentor'
+import api from '../../api/mentors-api';
 
 const MentorState = (props) => {
-  let initialState = { mentors: [] }
-  const [mentors, setMentors] = useState([])
-
-  useEffect(() => {
-    api
-      .get('/v1/mentors')
-      .then((res) => {
-        setMentors(res.data.data.mentors)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+  const initialState = {
+    mentors: [],
+  }
 
   const [state, dispatch] = useReducer(MentorReducer, initialState)
 
+  useEffect(() => {
+    api
+      .get('/v1/mentors/')
+      .then((response) => { 
+        console.log(response.data.data);
+        dispatch({ type: 'SUCCESS', payload: response.data.data});
+      })
+      .catch((err) => {
+        dispatch({ type: 'ERROR', error: err});
+      })
+  }, [])
+ 
   return (
-    <MentorContext.Provider value={mentors}>
-      <Mentor />
+    <MentorContext.Provider value={{ mentors: state.mentors }}>
+      {props.children}
     </MentorContext.Provider>
   )
 }

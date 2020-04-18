@@ -1,9 +1,15 @@
 const MentorReducer = (state, action) => {
   switch (action.type) {
-    case 'GET_ALL':
-      return state.mentors.map((result) => {
-        return result
-      })
+    case 'SUCCESS':
+      return {
+        mentors: action.payload,
+        error: ''
+      }
+    case 'ERROR':
+      return {
+        data: action.payload,
+        error: action.error
+      }
     default:
       return state
   }
