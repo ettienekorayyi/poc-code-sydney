@@ -19,13 +19,4 @@
     font-size: 25px;
     font-weight: 700;
   }
-
-  .location-marker {
-    font-size: 20px;
-    margin-top: 4px;
-  }
-
-  .mentor-location {
-    justify-items: center;
-  }
 }
