@@ -1,7 +1,13 @@
-import { GET_MENTORS, MENTORS_ERROR } from '../types'
+import { GET_MENTOR, GET_MENTORS, MENTORS_ERROR } from '../types'
 
 const MentorReducer = (state, { type, payload }) => {
   switch (type) {
+    case GET_MENTOR:
+      return {
+        ...state,
+        mentor: payload,
+        error: null,
+      }
     case GET_MENTORS:
       return {
         ...state,
