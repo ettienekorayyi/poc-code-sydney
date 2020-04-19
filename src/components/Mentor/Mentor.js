@@ -1,19 +1,33 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import './mentor.css'
-import Engramar from '../../assets/engramar.png'
 import { MdLocationOn, MdAccountCircle } from 'react-icons/md'
 import { location } from '../../constants'
+import MentorContext from '../../context/mentorContext/MentorContext'
+import PlaceHolderImage from '../../assets/placeholder_image.png'
 
 const Mentor = () => {
+  const { mentor, getMentor } = useContext(MentorContext)
+  const { id } = useParams()
+  const photoURL = `https://codesydney-website.s3-ap-southeast-2.amazonaws.com/mentor/${id}.png`
+
+  useEffect(() => {
+    getMentor(id)
+  }, [id])
+
   const mentorLocation = location[Math.floor(Math.random() * location.length)]
   const mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${mentorLocation},AU&zoom=15&size=400x250&maptype=roadmap&markers=color:red%7Clabel:M%7C${mentorLocation},AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck`
 
   return (
     <div className='mentor'>
       <div className='profile'>
-        <img src={Engramar} className='mentor-photo' alt='Engramar' />
-        <div className='mentor-name'>Engramar B</div>
-        <div>Software Engineer</div>
+        <img
+          src={mentor.photo ? photoURL : PlaceHolderImage}
+          className='mentor-photo'
+          alt='mentor profile'
+        />
+        <div className='mentor-name'>{mentor.fullName}</div>
+        <div>{mentor.title}</div>
         <div className='location'>
           <MdLocationOn className='location-marker' />
           {mentorLocation}, Australia
@@ -32,7 +46,7 @@ const Mentor = () => {
             <div className='panel-location-text'>Location</div>
           </div>
           <div className='panel-content'>
-            <img src={mapURL} className='map' />
+            <img src={mapURL} className='map' alt='map' />
           </div>
         </div>
 
@@ -44,10 +58,7 @@ const Mentor = () => {
             <div className='panel-location-text'>Description</div>
           </div>
           <div className='panel-content mentor-description'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-            necessitatibus libero exercitationem, non, amet sunt ab nam
-            doloremque, est eum ducimus odio odit aliquid unde. Ratione dolorum
-            iusto voluptate blanditiis!
+            {mentor.description}
           </div>
         </div>
       </div>
