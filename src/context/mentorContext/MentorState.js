@@ -2,11 +2,12 @@ import React, { useReducer } from 'react'
 import MentorContext from './MentorContext'
 import MentorReducer from './MentorReducer'
 import api from '../../api/mentors-api'
+import { GET_MENTORS, MENTORS_ERROR } from '../types'
 
 const MentorState = (props) => {
   const initialState = {
     mentors: [],
-    error: '',
+    error: null,
   }
 
   const [state, dispatch] = useReducer(MentorReducer, initialState)
@@ -15,10 +16,10 @@ const MentorState = (props) => {
     return api
       .get('/v1/mentors/')
       .then((response) => {
-        dispatch({ type: 'SUCCESS', payload: response.data.data.mentors })
+        dispatch({ type: GET_MENTORS, payload: response.data.data.mentors })
       })
       .catch((err) => {
-        dispatch({ type: 'ERROR', error: err })
+        dispatch({ type: MENTORS_ERROR, payload: err })
       })
   }
 

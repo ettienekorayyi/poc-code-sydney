@@ -1,15 +1,17 @@
-const MentorReducer = (state, action) => {
-  switch (action.type) {
-    case 'SUCCESS':
+import { GET_MENTORS, MENTORS_ERROR } from '../types'
+
+const MentorReducer = (state, { type, payload }) => {
+  switch (type) {
+    case GET_MENTORS:
       return {
         ...state,
-        mentors: action.payload,
-        error: ''
+        mentors: payload,
+        error: null,
       }
-    case 'ERROR':
+    case MENTORS_ERROR:
       return {
         ...state,
-        error: action.error
+        error: payload,
       }
     default:
       return state
