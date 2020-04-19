@@ -6,7 +6,7 @@ import { GET_MENTOR, GET_MENTORS, MENTORS_ERROR } from '../types'
 
 const MentorState = (props) => {
   const initialState = {
-    mentor: [],
+    mentor: {},
     mentors: [],
     error: null,
   }
