@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './mentor.css'
-import Engramar from '../../assets/engramar.png'
 import { MdLocationOn, MdAccountCircle } from 'react-icons/md'
 import { location } from '../../constants'
 import MentorContext from '../../context/mentorContext/MentorContext'
