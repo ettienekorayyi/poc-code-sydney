@@ -7,7 +7,7 @@ import MentorContext from '../../context/mentorContext/MentorContext'
 import PlaceHolderImage from '../../assets/placeholder_image.png'
 
 const Mentor = () => {
-  const { mentor, getMentor } = useContext(MentorContext)
+  const { mentor, getMentor, isLoading } = useContext(MentorContext)
   const { id } = useParams()
   const photoURL = `https://codesydney-website.s3-ap-southeast-2.amazonaws.com/mentor/${id}.png`
 

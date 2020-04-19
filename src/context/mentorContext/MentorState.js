@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import MentorContext from './MentorContext'
 import MentorReducer from './MentorReducer'
 import api from '../../api/mentors-api'
@@ -10,6 +10,8 @@ const MentorState = (props) => {
     mentors: [],
     error: null,
   }
+
+  const [isLoading, setIsLoading] = useState(false)
 
   const [state, dispatch] = useReducer(MentorReducer, initialState)
 
@@ -28,7 +30,9 @@ const MentorState = (props) => {
     return api
       .get(`/v1/mentors/${id}`)
       .then((response) => {
+        setIsLoading(true)
         dispatch({ type: GET_MENTOR, payload: response.data.data.mentor })
+        setIsLoading(false)
       })
       .catch((err) => {
         dispatch({ type: MENTORS_ERROR, payload: err })
@@ -42,6 +46,7 @@ const MentorState = (props) => {
         mentor: state.mentor,
         getMentor,
         getMentors,
+        isLoading,
       }}
     >
       {props.children}
