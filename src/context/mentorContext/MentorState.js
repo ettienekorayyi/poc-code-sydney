@@ -26,7 +26,7 @@ const MentorState = (props) => {
 
   const getMentor = (id) => {
     return api
-      .get(`/v1/mentor/${id}`)
+      .get(`/v1/mentors/${id}`)
       .then((response) => {
         dispatch({ type: GET_MENTOR, payload: response.data.data.mentor })
       })

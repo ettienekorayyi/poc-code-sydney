@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import './mentor.css'
 import Engramar from '../../assets/engramar.png'
 import { MdLocationOn, MdAccountCircle } from 'react-icons/md'
 import { location } from '../../constants'
+import MentorContext from '../../context/mentorContext/MentorContext'
 
 const Mentor = () => {
+  const { mentor, getMentor } = useContext(MentorContext)
+  const { id } = useParams()
+
+  useEffect(() => {
+    getMentor(id)
+  }, [id])
+
   const mentorLocation = location[Math.floor(Math.random() * location.length)]
   const mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${mentorLocation},AU&zoom=15&size=400x250&maptype=roadmap&markers=color:red%7Clabel:M%7C${mentorLocation},AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck`
 
