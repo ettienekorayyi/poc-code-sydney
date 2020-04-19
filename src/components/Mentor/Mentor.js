@@ -22,7 +22,11 @@ const Mentor = () => {
   return (
     <div className='mentor'>
       <div className='profile'>
-        <img src={Engramar} className='mentor-photo' alt='mentor profile' />
+        <img
+          src={mentor.photo ? photoURL : PlaceHolderImage}
+          className='mentor-photo'
+          alt='mentor profile'
+        />
         <div className='mentor-name'>{mentor.fullName}</div>
         <div>{mentor.title}</div>
         <div className='location'>
