@@ -11,7 +11,7 @@ const MentorState = (props) => {
     error: null,
   }
 
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [state, dispatch] = useReducer(MentorReducer, initialState)
 
@@ -30,7 +30,6 @@ const MentorState = (props) => {
     return api
       .get(`/v1/mentors/${id}`)
       .then((response) => {
-        setIsLoading(true)
         dispatch({ type: GET_MENTOR, payload: response.data.data.mentor })
         setIsLoading(false)
       })

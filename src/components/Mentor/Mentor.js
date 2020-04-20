@@ -5,6 +5,7 @@ import { MdLocationOn, MdAccountCircle } from 'react-icons/md'
 import { location } from '../../constants'
 import MentorContext from '../../context/mentorContext/MentorContext'
 import PlaceHolderImage from '../../assets/placeholder_image.png'
+import Loading from '../Loading'
 
 const Mentor = () => {
   const { mentor, getMentor, isLoading } = useContext(MentorContext)
@@ -20,48 +21,52 @@ const Mentor = () => {
 
   return (
     <div className='mentor'>
-      <div className='profile'>
-        <img
-          src={mentor.photo ? photoURL : PlaceHolderImage}
-          className='mentor-photo'
-          alt='mentor profile'
-        />
-        <div className='mentor-name'>{mentor.fullName}</div>
-        <div>{mentor.title}</div>
-        <div className='location'>
-          <MdLocationOn className='location-marker' />
-          {mentorLocation}, Australia
-        </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className='profile'>
+          <img
+            src={mentor.photo ? photoURL : PlaceHolderImage}
+            className='mentor-photo'
+            alt='mentor profile'
+          />
+          <div className='mentor-name'>{mentor.fullName}</div>
+          <div>{mentor.title}</div>
+          <div className='location'>
+            <MdLocationOn className='location-marker' />
+            {mentorLocation}, Australia
+          </div>
 
-        <div className='action-buttons'>
-          <button className='btn'>Edit</button>
-          <button className='btn delete'>Delete</button>
-        </div>
+          <div className='action-buttons'>
+            <button className='btn'>Edit</button>
+            <button className='btn delete'>Delete</button>
+          </div>
 
-        <div className='panel'>
-          <div className='panel-header'>
-            <div className='panel-location'>
-              <MdLocationOn />
+          <div className='panel'>
+            <div className='panel-header'>
+              <div className='panel-location'>
+                <MdLocationOn />
+              </div>
+              <div className='panel-location-text'>Location</div>
             </div>
-            <div className='panel-location-text'>Location</div>
-          </div>
-          <div className='panel-content'>
-            <img src={mapURL} className='map' alt='map' />
-          </div>
-        </div>
-
-        <div className='panel'>
-          <div className='panel-header'>
-            <div className='panel-location'>
-              <MdAccountCircle />
+            <div className='panel-content'>
+              <img src={mapURL} className='map' alt='map' />
             </div>
-            <div className='panel-location-text'>Description</div>
           </div>
-          <div className='panel-content mentor-description'>
-            {mentor.description}
+
+          <div className='panel'>
+            <div className='panel-header'>
+              <div className='panel-location'>
+                <MdAccountCircle />
+              </div>
+              <div className='panel-location-text'>Description</div>
+            </div>
+            <div className='panel-content mentor-description'>
+              {mentor.description}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

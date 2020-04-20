@@ -1,5 +1,5 @@
 .Loading {
-  margin-top: 90%;
+  margin-top: 60%;
   text-align: center;
 }
 
@@ -16,10 +16,10 @@
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #e8e8e8;
+  border: 8px solid #355878;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #e8e8e8 transparent transparent transparent;
+  border-color: #355878 transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
