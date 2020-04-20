@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
-import "./results.css";
-import Card from "../Card/Card";
-import MentorContext from "../../context/mentorContext/MentorContext";
+import React, { useEffect, useContext } from 'react'
+import './results.css'
+import Card from '../Card/Card'
+import MentorContext from '../../context/mentorContext/MentorContext'
 
 const Results = () => {
-  const { mentors } = useContext(MentorContext);
+  const { mentors, getMentors } = useContext(MentorContext)
+
+  useEffect(() => {
+    getMentors()
+  }, [])
 
   return (
-    <div className="results">
+    <div className='results'>
       {mentors.map((mentor) => (
         <Card
           id={mentor.id}
@@ -18,7 +22,7 @@ const Results = () => {
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Results;
+export default Results
