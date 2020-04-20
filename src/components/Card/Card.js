@@ -9,8 +9,8 @@ const Card = ({ id, fullName, title, photo }) => {
     <div className="card">
       <img className="card-image" src={photo ? photoURL : PlaceHolderImage} alt="user-profile" />
       <div className="card-fullName">{fullName}</div>
-      <div>{title}</div>
-      <button>More Info</button>
+      <div className="card-title">{title}</div>
+      <button className="card-button">More Info</button>
     </div>
   );
 };

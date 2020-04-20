@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
-    color: white;
+    color: #fff;
     margin-top: 30px;
   }
 }
@@ -30,4 +30,20 @@
  font-weight: 500;
  font-size: x-large;
  padding-bottom: 10px;
+}
+
+.card .card-button {
+  margin-top: 110px;
+	background-color: rgb(255, 255, 255);
+	padding: 5px 70px;
+	border-radius: 20px;
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	border: 2px solid darken(rgb(234, 233, 236), 10%);
+  transition: background-color 0.5s;
+  font-size: 16px;
+}
+
+.card-button :hover {
+  background-color: #3F3552;
 }
