@@ -7,8 +7,8 @@ const Card = ({ id, fullName, title, photo }) => {
 
   return (
     <div className="card">
-      {/* <img src={photo ? photoURL : PlaceHolderImage} alt="user-profile" /> */}
-      <div>{fullName}</div>
+      <img className="card-image" src={photo ? photoURL : PlaceHolderImage} alt="user-profile" />
+      <div className="card-fullName">{fullName}</div>
       <div>{title}</div>
       <button>More Info</button>
     </div>
