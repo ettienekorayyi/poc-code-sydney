@@ -16,7 +16,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1040;
     display: none;
   }
@@ -41,5 +41,30 @@
 
   .modal-container.modal-container-active {
     display: block;
+  }
+
+  .mentor-input {
+    width: 94%;
+    padding: 12px 10px;
+    margin: 2px 0 2px 10px;
+    display: inline-block;
+    border: 1px solid #355878;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #355878;
+    font-size: 14px;
+  }
+
+  .mentor-textarea {
+    width: 94%;
+    padding: 12px 10px;
+    margin: 2px 0 2px 10px;
+    display: inline-block;
+    border: 1px solid #355878;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #355878;
+    font-size: 14px;
+    height: 150px;
   }
 }

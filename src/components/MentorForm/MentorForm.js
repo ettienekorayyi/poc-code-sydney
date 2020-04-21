@@ -23,8 +23,15 @@ const MentorForm = () => {
       </div>
 
       <div className={containerClass}>
-        <div className='modal-header'></div>
-        <div className='modal-body'></div>
+        <div className='modal-body'>
+          <input type='text' placeholder='Full Name' className='mentor-input' />
+          <input type='text' placeholder='Position' className='mentor-input' />
+          <textarea
+            type='text'
+            placeholder='Description'
+            className='mentor-textarea'
+          />
+        </div>
         <div className='modal-footer'></div>
       </div>
 
