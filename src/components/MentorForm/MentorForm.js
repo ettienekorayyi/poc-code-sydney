@@ -24,6 +24,9 @@ const MentorForm = () => {
 
       <div className={containerClass}>
         <div className='modal-body'>
+          <div className='upload-section'>
+            <input type='file' className='file-upload' />
+          </div>
           <input type='text' placeholder='Full Name' className='mentor-input' />
           <input type='text' placeholder='Position' className='mentor-input' />
           <textarea
