@@ -6,13 +6,13 @@ const Search = () => {
     <div className='search'>
       <div className='form-wrapper'>
         <div className='select-box'>
-          <select>
+          <select className='input-style'>
             <option value='name'>Name</option>
             <option value='title'>Title</option>
           </select>
         </div>
         <div className='search-bar'>
-          <input type='text' />
+          <input type='text' className='input-style' />
         </div>
       </div>
 
