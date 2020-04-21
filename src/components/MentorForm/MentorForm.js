@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './mentorform.css'
+import { FaUserPlus } from 'react-icons/fa'
 
 const MentorForm = () => {
   const [modalOpened, setModalOpened] = useState(false)
@@ -17,9 +18,9 @@ const MentorForm = () => {
 
   return (
     <div>
-      <button className='btn btn-primary' onClick={modalToggle}>
-        Modal
-      </button>
+      <div className='add-mentor-icon'>
+        <FaUserPlus onClick={modalToggle} />
+      </div>
 
       <div className={containerClass}>
         <div className='modal-header'></div>
@@ -33,43 +34,3 @@ const MentorForm = () => {
 }
 
 export default MentorForm
-
-// class Modal extends React.Component {
-//   constructor(props) {
-//     super(props)
-
-//     this.state = {
-//       modalOpened: false,
-//     }
-
-//     this.modalToggle = this.modalToggle.bind(this)
-//   }
-
-//   modalToggle() {
-//     this.setState({ modalOpened: !this.state.modalOpened })
-//   }
-
-//   render() {
-// const coverClass = this.state.modalOpened
-//   ? 'modal-cover modal-cover-active'
-//   : 'modal-cover'
-// const containerClass = this.state.modalOpened
-//   ? 'modal-container modal-container-active'
-//   : 'modal-container'
-// return (
-//   <div>
-//     <button className='btn btn-primary' onClick={this.modalToggle}>
-//       Modal
-//     </button>
-
-//     <div className={containerClass}>
-//       <div className='modal-header'></div>
-//       <div className='modal-body'></div>
-//       <div className='modal-footer'></div>
-//     </div>
-
-//     <div className={coverClass} onClick={this.modalToggle}></div>
-//   </div>
-// )
-//   }
-// }

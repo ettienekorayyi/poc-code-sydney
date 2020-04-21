@@ -1,19 +1,13 @@
 @media screen and (max-width: 600px) {
   /* Mobile View */
-  .btn {
-    padding: 5px 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 4px;
-  }
 
-  .btn-primary {
-    color: white;
-    background-color: blue;
-  }
-
-  .btn-primary:hover {
-    background-color: darkblue;
+  .add-mentor-icon {
+    font-size: 30px;
+    color: #355878;
+    margin-top: 10px;
+    margin-bottom: -27px;
+    text-align: right;
+    margin-right: 11px;
   }
 
   .modal-cover {
