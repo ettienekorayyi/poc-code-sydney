@@ -32,7 +32,12 @@ const MentorForm = () => {
             className='mentor-textarea'
           />
         </div>
-        <div className='modal-footer'></div>
+        <div className='modal-btn'>
+          <button className='modal-action-btn'>Save</button>
+          <button className='modal-action-btn cancel' onClick={modalToggle}>
+            Cancel
+          </button>
+        </div>
       </div>
 
       <div className={coverClass} onClick={modalToggle}></div>

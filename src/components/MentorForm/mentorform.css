@@ -16,7 +16,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 1040;
     display: none;
   }
@@ -34,7 +34,7 @@
     width: 340px;
     min-height: 300px;
     left: 82%;
-    top: 10%;
+    top: 15%;
     margin-left: -300px;
     display: none;
   }
@@ -46,7 +46,7 @@
   .mentor-input {
     width: 94%;
     padding: 12px 10px;
-    margin: 2px 0 2px 10px;
+    margin: 2px 0 2px 11px;
     display: inline-block;
     border: 1px solid #355878;
     border-radius: 4px;
@@ -58,7 +58,7 @@
   .mentor-textarea {
     width: 94%;
     padding: 12px 10px;
-    margin: 2px 0 2px 10px;
+    margin: 2px 0 2px 11px;
     display: inline-block;
     border: 1px solid #355878;
     border-radius: 4px;
@@ -66,5 +66,30 @@
     color: #355878;
     font-size: 14px;
     height: 150px;
+  }
+
+  .modal-btn {
+    text-align: center;
+  }
+
+  .modal-action-btn {
+    background-color: #355878;
+    border: none;
+    color: white;
+    padding: 8px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 3px 0 3px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 2px;
+    font-weight: 600;
+    width: 90px;
+  }
+
+  .cancel {
+    background-color: grey;
   }
 }
