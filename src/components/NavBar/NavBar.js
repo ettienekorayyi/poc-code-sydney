@@ -3,8 +3,8 @@ import './navbar.css'
 import Logo from '../../assets/logo.png'
 import Engramar from '../../assets/engramar.png'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { MdClear } from 'react-icons/md'
-import { FaSearch, FaUserPlus } from 'react-icons/fa'
+import { MdClear, MdExitToApp } from 'react-icons/md'
+import { FaSearch } from 'react-icons/fa'
 
 const NavBar = () => {
   const [isHidden, setHidden] = useState(false)
@@ -41,9 +41,9 @@ const NavBar = () => {
           </a>
           <div className='dropdown-section'>
             <div className='dropdown-icon'>
-              <FaUserPlus className='navigation-icon' />
+              <MdExitToApp className='navigation-icon' />
             </div>
-            <div className='dropdown-description'>Add New Mentor</div>
+            <div className='dropdown-description'>Logout</div>
           </div>
 
           <div className='dropdown-section loggedin-user'>
