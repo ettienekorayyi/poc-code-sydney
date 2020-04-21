@@ -39,14 +39,12 @@ const NavBar = () => {
               <div className='dropdown-description'>Search</div>
             </div>
           </a>
-          <a href='/create'>
-            <div className='dropdown-section'>
-              <div className='dropdown-icon'>
-                <FaUserPlus className='navigation-icon' />
-              </div>
-              <div className='dropdown-description'>Add New Mentor</div>
+          <div className='dropdown-section'>
+            <div className='dropdown-icon'>
+              <FaUserPlus className='navigation-icon' />
             </div>
-          </a>
+            <div className='dropdown-description'>Add New Mentor</div>
+          </div>
 
           <div className='dropdown-section loggedin-user'>
             <div className='dropdown-icon'>
