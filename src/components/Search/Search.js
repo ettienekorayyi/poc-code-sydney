@@ -16,7 +16,6 @@ const Search = () => {
 
   useEffect(() => {
     getMentors();
-    console.log('stv');
   }, [searchTerm, dropDown]);
 
   const onSearchSubmit = () => {
