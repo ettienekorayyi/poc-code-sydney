@@ -1,0 +1,10 @@
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .results {
+    margin-left: 21px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
