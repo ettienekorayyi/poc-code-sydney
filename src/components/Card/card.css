@@ -1,8 +1,8 @@
 @media screen and (max-width: 600px) {
   /* Mobile View */
   .card {
-    max-width: 73%;
-    min-width: 73%;
+    max-width: 77%;
+    min-width: 77%;
     height: 400px;
     background-color: #355878;
     display: flex;
@@ -13,8 +13,8 @@
     margin-top: 30px;
   }
   .card-image {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     background-size: cover;
     border: 1px solid #355878;
