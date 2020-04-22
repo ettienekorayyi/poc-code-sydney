@@ -5,15 +5,16 @@ import MentorContext from '../../context/mentorContext/MentorContext'
 import { Link } from 'react-router-dom'
 
 const Results = () => {
-  const { mentors, getMentors } = useContext(MentorContext)
+  const { mentors, getMentors, filteredMentors, notifier } = useContext(MentorContext)
+  
 
   useEffect(() => {
     getMentors()
   }, [])
 
-  return (
-    <div className='results'>
-      {mentors.map((mentor) => (
+  const iterator = () => {
+    if(notifier === true) {
+      return filteredMentors.map((mentor) => (
         <Link to={`/mentor/${mentor.id}`} key={mentor.id}>
           <Card
             id={mentor.id}
@@ -24,7 +25,27 @@ const Results = () => {
             description={mentor.description}
           />
         </Link>
-      ))}
+      ))
+    }
+    else if(notifier === false) {
+      return mentors.map((mentor) => (
+        <Link to={`/mentor/${mentor.id}`} key={mentor.id}>
+          <Card
+            id={mentor.id}
+            key={mentor.id}
+            photo={mentor.photo}
+            fullName={mentor.fullName}
+            title={mentor.title}
+            description={mentor.description}
+          />
+        </Link>
+      ))
+    }
+  };
+
+  return (
+    <div className='results'>
+      { iterator() }
     </div>
   )
 }
