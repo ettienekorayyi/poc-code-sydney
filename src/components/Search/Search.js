@@ -4,12 +4,13 @@ import MentorContext from '../../context/mentorContext/MentorContext';
 import { DropDownOptions } from '../../commons/utility';
 import { OPTION_NAME } from '../../context/types';
 
-
-
 const Search = () => {
-  const { mentors, getMentor, getMentors } = useContext(MentorContext);
+  const {
+    mentors, getMentor, getMentors, filteredResource,
+    filteredMentors, setNotifier
+  } = useContext(MentorContext);
+
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredMentors, setFilteredMentors] = useState([]);
   const [dropDown, setDropDownOption] = useState(OPTION_NAME);
   const [textBoxState, setTextBoxState] = useState(true);
   const [textBoxInput, setTextBoxInput] = useState('');
@@ -20,10 +21,17 @@ const Search = () => {
 
   const onSearchSubmit = () => {
     if (textBoxState === false) {
-      setFilteredMentors(DropDownOptions({ dropDown, mentors, searchTerm }));
+      //setFilteredMentors(DropDownOptions({ dropDown, mentors, searchTerm }));
+      filteredResource(DropDownOptions({ dropDown, mentors, searchTerm }));
+      setNotifier(true);
       filteredMentors.map(fm => getMentor(fm.id));
+      unHide();
     }
   };
+
+  const unHide = () => {
+    document.getElementById('result').removeAttribute("hidden");
+  }
 
   const onSearchTermChange = (e) => {
     let { value } = e.target;
@@ -39,12 +47,13 @@ const Search = () => {
 
   onkeydown = (e) => {
     let { keyCode } = e;
-    
-    if (keyCode === 8 && textBoxInput.length === 0) { 
-      setFilteredMentors([]);
+
+    if (keyCode === 8 && textBoxInput.length === 0) {
+      filteredResource([]);
+      setNotifier(false);
       setTextBoxState(true);
     }
-    if(keyCode === 13) {
+    if (keyCode === 13) {
       onSearchSubmit();
     }
   }
@@ -67,7 +76,7 @@ const Search = () => {
         <button className='button' onClick={() => onSearchSubmit()} disabled={textBoxState} >Search</button>
       </div>
 
-      <div className='results-section'>
+      <div className='results-section' href="#" id="result" hidden>
         <h2>Search Results</h2>
         <div className='search-results'>
           We found <strong className='result'>{filteredMentors.length}</strong> matching your

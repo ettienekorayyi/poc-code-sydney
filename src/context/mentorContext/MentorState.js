@@ -12,8 +12,9 @@ const MentorState = (props) => {
   }
 
   const [isLoading, setIsLoading] = useState(true)
-
+  const [filteredMentors, setFilteredMentors] = useState([]);
   const [state, dispatch] = useReducer(MentorReducer, initialState)
+  const [notifier, setNotifier] = useState(false);
 
   const getMentors = () => {
     return api
@@ -38,13 +39,21 @@ const MentorState = (props) => {
       })
   }
 
+  const filteredResource = (list) => {
+    setFilteredMentors(list);
+  };
+
   return (
     <MentorContext.Provider
       value={{
         mentors: state.mentors,
         mentor: state.mentor,
+        filteredMentors,
         getMentor,
         getMentors,
+        filteredResource,
+        setNotifier,
+        notifier, 
         isLoading,
       }}
     >
