@@ -25,7 +25,6 @@ const Search = () => {
 
   const onSearchSubmit = () => {
     if (textBoxState === false) {
-      //setFilteredMentors(DropDownOptions({ dropDown, mentors, searchTerm }));
       filteredResource(DropDownOptions({ dropDown, mentors, searchTerm }))
       setNotifier(true)
       filteredMentors.map((fm) => getMentor(fm.id))
@@ -34,6 +33,7 @@ const Search = () => {
 
   const onSearchTermChange = (e) => {
     let { value } = e.target
+    value = value.toLowerCase()
     setSearchTerm(value)
     setTextBoxInput(value)
     setTextBoxState(false)
