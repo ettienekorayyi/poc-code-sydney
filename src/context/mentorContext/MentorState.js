@@ -12,15 +12,17 @@ const MentorState = (props) => {
   }
 
   const [isLoading, setIsLoading] = useState(true)
-  const [filteredMentors, setFilteredMentors] = useState([]);
+  const [isLoadingResult, setIsLoadingResult] = useState(true)
+  const [filteredMentors, setFilteredMentors] = useState([])
   const [state, dispatch] = useReducer(MentorReducer, initialState)
-  const [notifier, setNotifier] = useState(false);
+  const [notifier, setNotifier] = useState(false)
 
   const getMentors = () => {
     return api
       .get('/v1/mentors/')
       .then((response) => {
         dispatch({ type: GET_MENTORS, payload: response.data.data.mentors })
+        setIsLoadingResult(false)
       })
       .catch((err) => {
         dispatch({ type: MENTORS_ERROR, payload: err })
@@ -40,8 +42,8 @@ const MentorState = (props) => {
   }
 
   const filteredResource = (list) => {
-    setFilteredMentors(list);
-  };
+    setFilteredMentors(list)
+  }
 
   return (
     <MentorContext.Provider
@@ -53,8 +55,9 @@ const MentorState = (props) => {
         getMentors,
         filteredResource,
         setNotifier,
-        notifier, 
+        notifier,
         isLoading,
+        isLoadingResult,
       }}
     >
       {props.children}
