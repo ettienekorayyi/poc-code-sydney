@@ -48,15 +48,21 @@ const Results = () => {
     }
   }
 
+  const searchResultRender = () => {
+    if (notifier === false && filteredMentors.length === 0) {
+      return <h5>Mentors Counter: {mentors.length}</h5>
+    } else if (notifier === true && filteredMentors.length === 0) {
+      return <h5>NO RESULTS FOUND</h5>
+    }
+  }
+
   return (
     <div className='results'>
       {isLoadingResult ? (
         <Loading />
       ) : (
         <div className='result-iterator'>
-          {filteredMentors.length === 0 && (
-            <h5>Mentors Counter: {mentors.length}</h5>
-          )}
+          {searchResultRender()}
           {iterator()}
         </div>
       )}
