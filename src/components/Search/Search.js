@@ -90,8 +90,9 @@ const Search = () => {
           <h2>Search Results</h2>
           <div className='search-results'>
             We found{' '}
-            <strong className='result'>{filteredMentors.length}</strong> mentors
-            matching your search.
+            <strong className='result'>{filteredMentors.length}</strong>{' '}
+            {filteredMentors.length === 1 ? 'Mentor' : 'Mentors'} matching your
+            search.
           </div>
         </div>
       )}
