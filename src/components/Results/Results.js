@@ -50,9 +50,9 @@ const Results = () => {
 
   const searchResultRender = () => {
     if (notifier === false && filteredMentors.length === 0) {
-      return <h5>Mentors Counter: {mentors.length}</h5>
+      return <h4>Mentors Counter: {mentors.length}</h4>
     } else if (notifier === true && filteredMentors.length === 0) {
-      return <h5>NO RESULTS FOUND</h5>
+      return <h4>NO RESULTS FOUND</h4>
     }
   }
 
