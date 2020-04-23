@@ -7,4 +7,9 @@
   a {
     text-decoration: none;
   }
+
+  .result-iterator {
+    margin-top: 5px;
+    color: #355878;
+  }
 }

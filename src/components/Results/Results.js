@@ -49,7 +49,18 @@ const Results = () => {
   }
 
   return (
-    <div className='results'>{isLoadingResult ? <Loading /> : iterator()}</div>
+    <div className='results'>
+      {isLoadingResult ? (
+        <Loading />
+      ) : (
+        <div className='result-iterator'>
+          {filteredMentors.length === 0 && (
+            <h5>Mentors Counter: {mentors.length}</h5>
+          )}
+          {iterator()}
+        </div>
+      )}
+    </div>
   )
 }
 
