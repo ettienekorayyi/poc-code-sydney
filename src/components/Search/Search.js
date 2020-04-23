@@ -3,6 +3,7 @@ import './search.css'
 import MentorContext from '../../context/mentorContext/MentorContext'
 import { DropDownOptions } from '../../commons/utility'
 import { OPTION_NAME } from '../../context/types'
+import NoResults from '../../components/NoResults'
 
 const Search = () => {
   const {
