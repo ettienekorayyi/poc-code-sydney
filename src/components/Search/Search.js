@@ -3,7 +3,6 @@ import './search.css'
 import MentorContext from '../../context/mentorContext/MentorContext'
 import { DropDownOptions } from '../../commons/utility'
 import { OPTION_NAME } from '../../context/types'
-import NoResults from '../../components/NoResults'
 
 const Search = () => {
   const {
@@ -92,7 +91,7 @@ const Search = () => {
           <div className='search-results'>
             We found{' '}
             <strong className='result'>{filteredMentors.length}</strong>{' '}
-            {filteredMentors.length === 1 ? 'Mentor' : 'Mentors'} matching your
+            {filteredMentors.length === 1 ? 'mentor' : 'mentors'} matching your
             search.
           </div>
         </div>
