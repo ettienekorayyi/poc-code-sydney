@@ -105,9 +105,22 @@
   }
 
   .file-upload {
-    margin-top: 75px;
-    font-size: 12px;
-    width: 100%;
+    visibility: hidden;
+    width: 20px;
+  }
+
+  .upload-icon {
+    font-size: 50px;
+    margin-left: 67px;
+    margin-top: 55px;
+    color: #355878;
+  }
+
+  .upload-instructions {
+    font-size: 10px;
+    margin-left: 38px;
+    color: #355878;
+    font-weight: 700;
   }
 
   .preview-image {

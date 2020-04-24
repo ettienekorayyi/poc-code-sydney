@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import './mentorform.css'
 import { FaUserPlus } from 'react-icons/fa'
 import MentorContext from '../../context/mentorContext/MentorContext'
+import { FaFileUpload } from 'react-icons/fa'
 
 const MentorForm = () => {
   const [modalOpened, setModalOpened] = useState(false)
@@ -55,11 +56,15 @@ const MentorForm = () => {
                 alt='new-mentor-img'
               />
             ) : (
-              <input
-                type='file'
-                className='file-upload'
-                onChange={(e) => onUploadPhoto(e)}
-              />
+              <label className='img-label'>
+                <FaFileUpload className='upload-icon' />
+                <div className='upload-instructions'>Upload Mentor Photo</div>
+                <input
+                  type='file'
+                  className='file-upload'
+                  onChange={(e) => onUploadPhoto(e)}
+                />
+              </label>
             )}
           </div>
           <input
