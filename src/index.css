@@ -9,3 +9,29 @@
 a {
   text-decoration: none;
 }
+
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .desktop-view {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  /* Desktop View */
+  .app {
+    display: none;
+  }
+
+  body {
+    background-color: #355878;
+  }
+
+  .desktop-view {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './navbar.css'
 import Logo from '../../assets/logo.png'
-import Engramar from '../../assets/engramar.png'
+import Avatar from '../../assets/avatar.png'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { MdClear, MdExitToApp } from 'react-icons/md'
 import { FaSearch } from 'react-icons/fa'
@@ -48,9 +48,9 @@ const NavBar = () => {
 
           <div className='dropdown-section loggedin-user'>
             <div className='dropdown-icon'>
-              <img src={Engramar} className='avatar' alt='Engramar' />
+              <img src={Avatar} className='avatar' alt='avatar' />
             </div>
-            <div className='engramar'>Engrammar B</div>
+            <div className='engramar'>Admin</div>
           </div>
         </div>
       )}
