@@ -6,7 +6,7 @@ import MentorForm from '../MentorForm'
 
 const Home = () => {
   return (
-    <div>
+    <div className='home'>
       <MentorForm />
       <Search />
       <Results />

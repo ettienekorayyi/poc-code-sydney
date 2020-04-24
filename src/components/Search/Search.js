@@ -1,60 +1,60 @@
 import React, { useContext, useState, useEffect } from 'react'
 import './search.css'
-import MentorContext from '../../context/mentorContext/MentorContext';
-import { DropDownOptions } from '../../commons/utility';
-import { OPTION_NAME } from '../../context/types';
+import MentorContext from '../../context/mentorContext/MentorContext'
+import { DropDownOptions } from '../../commons/utility'
+import { OPTION_NAME } from '../../context/types'
+import NoResults from '../../components/NoResults'
 
 const Search = () => {
   const {
-    mentors, getMentor, getMentors, filteredResource,
-    filteredMentors, setNotifier
-  } = useContext(MentorContext);
+    mentors,
+    getMentor,
+    getMentors,
+    filteredResource,
+    filteredMentors,
+    setNotifier,
+  } = useContext(MentorContext)
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const [dropDown, setDropDownOption] = useState(OPTION_NAME);
-  const [textBoxState, setTextBoxState] = useState(true);
-  const [textBoxInput, setTextBoxInput] = useState('');
+  const [searchTerm, setSearchTerm] = useState('')
+  const [dropDown, setDropDownOption] = useState(OPTION_NAME)
+  const [textBoxState, setTextBoxState] = useState(true)
+  const [textBoxInput, setTextBoxInput] = useState('')
 
   useEffect(() => {
-    getMentors();
-  }, [searchTerm, dropDown]);
+    getMentors()
+  }, [searchTerm, dropDown])
 
   const onSearchSubmit = () => {
     if (textBoxState === false) {
-      //setFilteredMentors(DropDownOptions({ dropDown, mentors, searchTerm }));
-      filteredResource(DropDownOptions({ dropDown, mentors, searchTerm }));
-      setNotifier(true);
-      filteredMentors.map(fm => getMentor(fm.id));
-      unHide();
+      filteredResource(DropDownOptions({ dropDown, mentors, searchTerm }))
+      setNotifier(true)
+      filteredMentors.map((fm) => getMentor(fm.id))
     }
-  };
-
-  const unHide = () => {
-    document.getElementById('result').removeAttribute("hidden");
   }
 
   const onSearchTermChange = (e) => {
-    let { value } = e.target;
-    setSearchTerm(value);
-    setTextBoxInput(value);
-    setTextBoxState(false);
-  };
+    let { value } = e.target
+    value = value.toLowerCase()
+    setSearchTerm(value)
+    setTextBoxInput(value)
+    setTextBoxState(false)
+  }
 
   const handleChange = (e) => {
-    let { value } = e.target;
+    let { value } = e.target
     setDropDownOption(value)
   }
 
   onkeydown = (e) => {
-    let { keyCode } = e;
+    let { keyCode } = e
 
     if (keyCode === 8 && textBoxInput.length === 0) {
-      filteredResource([]);
-      setNotifier(false);
-      setTextBoxState(true);
+      filteredResource([])
+      setNotifier(false)
+      setTextBoxState(true)
     }
     if (keyCode === 13) {
-      onSearchSubmit();
+      onSearchSubmit()
     }
   }
 
@@ -68,21 +68,35 @@ const Search = () => {
           </select>
         </div>
         <div className='search-bar'>
-          <input type='text' className='input-style' onChange={e => onSearchTermChange(e)} />
+          <input
+            type='text'
+            className='input-style'
+            onChange={(e) => onSearchTermChange(e)}
+          />
         </div>
       </div>
 
       <div className='search-button'>
-        <button className='button' onClick={() => onSearchSubmit()} disabled={textBoxState} >Search</button>
+        <button
+          className='button'
+          onClick={() => onSearchSubmit()}
+          disabled={textBoxState}
+        >
+          Search
+        </button>
       </div>
 
-      <div className='results-section' href="#" id="result" hidden>
-        <h2>Search Results</h2>
-        <div className='search-results'>
-          We found <strong className='result'>{filteredMentors.length}</strong> matching your
-          search.
+      {filteredMentors.length > 0 && (
+        <div className='results-section'>
+          <h2>Search Results</h2>
+          <div className='search-results'>
+            We found{' '}
+            <strong className='result'>{filteredMentors.length}</strong>{' '}
+            {filteredMentors.length === 1 ? 'Mentor' : 'Mentors'} matching your
+            search.
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
