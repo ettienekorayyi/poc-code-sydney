@@ -7,7 +7,9 @@ const Desktop = () => {
     <div className='desktop'>
       <img src={Logo} alt='Code Sydney Logo' className='code-sydney-asset' />
       <div className='message-view'>
-        This application is intentionally designed for only mobile view only.
+        This app is intentionally designed for mobile view only.
+        <br />
+        For the best experience, please view this app on your mobile device.
       </div>
     </div>
   )
