@@ -6,6 +6,7 @@
     height: 90px;
     text-align: center;
     color: #355878;
+    max-width: 100%;
   }
 
   .mentor-photo {
@@ -70,6 +71,7 @@
 
   .action-buttons {
     margin-top: 3px;
+    max-width: 100%;
   }
 
   .btn {
