@@ -1,0 +1,14 @@
+@media screen and (min-width: 900px) {
+  /* Desktop View */
+  .desktop {
+    width: 1200px;
+    color: #355878;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+
+  .code-sydney-asset {
+    width: 150px;
+    margin-top: 15px;
+  }
+}
