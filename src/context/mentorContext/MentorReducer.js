@@ -1,6 +1,6 @@
-import { GET_MENTOR, GET_MENTORS, MENTORS_ERROR } from '../types'
+import { GET_MENTOR, GET_MENTORS, MENTORS_ERROR, POST_MENTOR } from '../types'
 
-const MentorReducer = (state, { type, payload }) => {
+const MentorReducer = (state, { type, payload, photo }) => {
   switch (type) {
     case GET_MENTOR:
       return {
@@ -12,6 +12,13 @@ const MentorReducer = (state, { type, payload }) => {
       return {
         ...state,
         mentors: payload,
+        error: null,
+      }
+    case POST_MENTOR:
+      return {
+        ...state,
+        mentor: payload,
+        photo: photo,
         error: null,
       }
     case MENTORS_ERROR:
