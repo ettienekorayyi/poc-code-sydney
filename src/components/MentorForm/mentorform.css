@@ -132,4 +132,12 @@
     object-fit: cover;
     border-radius: 50%;
   }
+
+  .reupload-instructions {
+    font-size: 10px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: red;
+    font-weight: 600;
+  }
 }

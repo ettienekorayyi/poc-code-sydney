@@ -33,6 +33,13 @@ const MentorForm = () => {
     })
   }
 
+  const removePhotoPreview = () => {
+    setPhoto({
+      preview: '',
+      raw: '',
+    })
+  }
+
   const coverClass = modalOpened
     ? 'modal-cover modal-cover-active'
     : 'modal-cover'
@@ -54,6 +61,7 @@ const MentorForm = () => {
                 className='preview-image'
                 src={photo.preview}
                 alt='new-mentor-img'
+                onClick={(e) => removePhotoPreview(e)}
               />
             ) : (
               <label className='img-label'>
@@ -67,6 +75,12 @@ const MentorForm = () => {
               </label>
             )}
           </div>
+
+          {photo.preview && (
+            <div className='reupload-instructions'>
+              To re-upload, simply press image preview
+            </div>
+          )}
           <input
             type='text'
             placeholder='Full Name'
