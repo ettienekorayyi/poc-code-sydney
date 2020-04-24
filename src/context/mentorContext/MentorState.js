@@ -14,7 +14,6 @@ const MentorState = (props) => {
   const [isLoading, setIsLoading] = useState(true)
   const [isLoadingResult, setIsLoadingResult] = useState(true)
   const [filteredMentors, setFilteredMentors] = useState([])
-  const [newMentor, setNewMentor] = useState({})
   const [state, dispatch] = useReducer(MentorReducer, initialState)
   const [notifier, setNotifier] = useState(false)
 
@@ -43,24 +42,26 @@ const MentorState = (props) => {
   }
 
   const postMentor = (newMentor) => {
-
     return api
       .post('/v1/mentors/', newMentor)
       .then((response) => {
-        dispatch({ type: POST_MENTOR, payload: response, photo: response.image.raw })
-        setIsLoadingResult(false)
+        const mentorId = response.data.data.mentor.id
+
+        window.location = `/mentor/${mentorId}`
+        dispatch({
+          type: POST_MENTOR,
+          payload: response,
+          photo: response.image.raw,
+        })
       })
       .catch((err) => {
         dispatch({ type: MENTORS_ERROR, payload: err })
       })
   }
 
-  
   const newResource = (addedMentor) => {
     postMentor(addedMentor)
-    
   }
-  
 
   const filteredResource = (list) => {
     setFilteredMentors(list)
@@ -74,7 +75,7 @@ const MentorState = (props) => {
         filteredMentors,
         getMentor,
         getMentors,
-        
+
         filteredResource,
         setNotifier,
         newResource,
