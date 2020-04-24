@@ -6,7 +6,9 @@ const Desktop = () => {
   return (
     <div className='desktop'>
       <img src={Logo} alt='Code Sydney Logo' className='code-sydney-asset' />
-      <h1>HERE IS THE DESKTOP VIEW</h1>
+      <div className='message-view'>
+        This application is intentionally designed for only mobile view only.
+      </div>
     </div>
   )
 }
