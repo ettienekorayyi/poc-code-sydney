@@ -4,6 +4,7 @@ import MentorState from './context/mentorContext/MentorState'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Mentor from './components/Mentor'
+import Desktop from './components/Desktop'
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
         </Router>
       </div>
       <div className='desktop-view'>
-        <h1>HERE IS THE DESKTOP VIEW. IT ONLY WORKS ON MOBILE</h1>
+        <Desktop />
       </div>
     </MentorState>
   )
