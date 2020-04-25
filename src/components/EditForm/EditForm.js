@@ -34,12 +34,26 @@ const EditForm = ({ mentor, placeholderImage, photoURL }) => {
               alt='new-mentor-img'
             />
           </div>
-          <input type='text' placeholder='Full Name' className='mentor-input' />
-          <input type='text' placeholder='Position' className='mentor-input' />
+          <input
+            type='text'
+            placeholder='Full Name'
+            className='mentor-edit-input'
+            onChange={(e) => setFullName(e.target.value)}
+            value={fullName}
+          />
+          <input
+            type='text'
+            placeholder='Position'
+            className='mentor-edit-input'
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
           <textarea
             type='text'
             placeholder='Description'
-            className='mentor-textarea'
+            className='mentor-edit-textarea'
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
           />
         </div>
         <div className='modal-btn'>

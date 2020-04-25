@@ -33,6 +33,31 @@
     display: block;
   }
 
+  .mentor-edit-input {
+    width: 94%;
+    padding: 12px 10px;
+    margin: 2px 7px 2px 11px;
+    display: inline-block;
+    border: 1px solid #355878;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #355878;
+    font-size: 14px;
+  }
+
+  .mentor-edit-textarea {
+    width: 94%;
+    padding: 12px 10px;
+    margin: 2px 7px 2px 11px;
+    display: inline-block;
+    border: 1px solid #355878;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #355878;
+    font-size: 14px;
+    height: 150px;
+  }
+
   .edit-button {
     background-color: #355878;
     border: none;
