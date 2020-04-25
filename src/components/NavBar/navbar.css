@@ -3,7 +3,7 @@
   .navbar {
     box-shadow: 0 3px 1px -2px gray;
     height: 55px;
-    width: 100%;
+    max-width: 100%;
     display: flex;
     padding: 5px;
   }
