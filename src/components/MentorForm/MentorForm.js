@@ -11,14 +11,13 @@ const MentorForm = () => {
   const [fullName, setFullName] = useState('')
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const [image, setImage] = useState({ preview: '', raw: '' })
+  const [image, setImage] = useState(null)
+  const [ preview, setPreview] = useState('')
 
   const modalToggle = () => {
     setModalOpened(!modalOpened)
-    setImage({
-      preview: '',
-      raw: '',
-    })
+    setImage(null)
+    setPreview('')
   }
 
   const onAddMentorSave = (newMentor) => {
@@ -26,18 +25,14 @@ const MentorForm = () => {
   }
 
   const removePhotoPreview = () => {
-    setImage({
-      preview: '',
-      raw: '',
-    })
+    setImage(null)
+    setPreview('')
   }
 
   const onUploadPhoto = (e) => {
     const { files } = e.target
-    setImage({
-      preview: URL.createObjectURL(files[0]),
-      raw: files[0],
-    })
+    setImage(files[0])
+    setPreview(URL.createObjectURL(files[0]))
   }
 
   const coverClass = modalOpened
@@ -56,10 +51,10 @@ const MentorForm = () => {
       <div className={containerClass}>
         <div className='modal-body'>
           <div className='upload-section'>
-            {image.preview ? (
+            {preview ? (
               <img
                 className='preview-image'
-                src={image.preview}
+                src={preview}
                 alt='new-mentor-img'
                 onClick={(e) => removePhotoPreview(e)}
               />
@@ -76,7 +71,7 @@ const MentorForm = () => {
             )}
           </div>
 
-          {image.preview && (
+          {preview && (
             <div className='reupload-instructions'>
               To re-upload a new image, simply press image preview
             </div>
