@@ -158,4 +158,8 @@
     color: rgb(172, 11, 11);
     font-weight: 600;
   }
+
+  .loading-post-state {
+    margin-top: -100px;
+  }
 }

@@ -20,6 +20,7 @@ const MentorState = (props) => {
 
   const [isLoading, setIsLoading] = useState(true)
   const [isLoadingResult, setIsLoadingResult] = useState(true)
+  const [isLoadingRequest, setIsLoadingRequest] = useState(false)
   const [filteredMentors, setFilteredMentors] = useState([])
   const [hasError, setHasError] = useState(false)
   const [state, dispatch] = useReducer(MentorReducer, initialState)
@@ -53,14 +54,16 @@ const MentorState = (props) => {
       })
   }
 
-  const postMentor = ({image, title, description, fullName}) => {
-      const data = new FormData()
-      data.append('image', image)
-      data.append('title', title)
-      data.append('description', description)
-      data.append('fullName', fullName)
+  const postMentor = ({ image, title, description, fullName }) => {
+    const data = new FormData()
+    data.append('image', image)
+    data.append('title', title)
+    data.append('description', description)
+    data.append('fullName', fullName)
 
-      return api
+    setIsLoadingRequest(true)
+
+    return api
       .post('/v1/mentors/', data)
       .then((response) => {
         const mentorId = response.data.data.mentor.id
@@ -71,6 +74,7 @@ const MentorState = (props) => {
           payload: response,
           photo: response.image.raw,
         })
+        setIsLoadingRequest(false)
       })
       .catch((err) => {
         dispatch({ type: MENTORS_ERROR, payload: err })
@@ -109,10 +113,11 @@ const MentorState = (props) => {
         filteredResource,
         setNotifier,
         newResource,
-        hasError, 
+        hasError,
         notifier,
         isLoading,
         isLoadingResult,
+        isLoadingRequest,
       }}
     >
       {props.children}

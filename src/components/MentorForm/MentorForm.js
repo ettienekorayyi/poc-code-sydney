@@ -3,10 +3,11 @@ import './mentorform.css'
 import { FaUserPlus } from 'react-icons/fa'
 import MentorContext from '../../context/mentorContext/MentorContext'
 import { FaFileUpload } from 'react-icons/fa'
+import Loading from '../Loading'
 
 const MentorForm = () => {
   const [modalOpened, setModalOpened] = useState(false)
-  const { newResource } = useContext(MentorContext)
+  const { newResource, isLoadingRequest } = useContext(MentorContext)
 
   const [fullName, setFullName] = useState('')
   const [title, setTitle] = useState('')
@@ -54,83 +55,92 @@ const MentorForm = () => {
       </div>
 
       <div className={containerClass}>
-        <div className='modal-body'>
-          <div className='upload-section'>
-            {preview ? (
-              <img
-                className='preview-image'
-                src={preview}
-                alt='new-mentor-img'
-                onClick={(e) => removePhotoPreview(e)}
+        {isLoadingRequest ? (
+          <div className='loading-post-state'>
+            <Loading />
+          </div>
+        ) : (
+          <>
+            <div className='modal-body'>
+              <div className='upload-section'>
+                {preview ? (
+                  <img
+                    className='preview-image'
+                    src={preview}
+                    alt='new-mentor-img'
+                    onClick={(e) => removePhotoPreview(e)}
+                  />
+                ) : (
+                  <label className='img-label'>
+                    <FaFileUpload className='upload-icon' />
+                    <div className='upload-instructions'>
+                      Upload Mentor Photo
+                    </div>
+                    <input
+                      type='file'
+                      className='file-upload'
+                      onChange={(e) => onUploadPhoto(e)}
+                    />
+                  </label>
+                )}
+              </div>
+
+              {preview && (
+                <div className='reupload-instructions'>
+                  To re-upload a new image, simply press image preview
+                </div>
+              )}
+              <input
+                type='text'
+                placeholder='Full Name'
+                className='mentor-input'
+                onChange={(e) => setFullName(e.target.value)}
               />
-            ) : (
-              <label className='img-label'>
-                <FaFileUpload className='upload-icon' />
-                <div className='upload-instructions'>Upload Mentor Photo</div>
-                <input
-                  type='file'
-                  className='file-upload'
-                  onChange={(e) => onUploadPhoto(e)}
-                />
-              </label>
-            )}
-          </div>
-
-          {preview && (
-            <div className='reupload-instructions'>
-              To re-upload a new image, simply press image preview
+              <input
+                type='text'
+                placeholder='Position'
+                className='mentor-input'
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <textarea
+                type='text'
+                placeholder='Description'
+                className='mentor-textarea'
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </div>
-          )}
-          <input
-            type='text'
-            placeholder='Full Name'
-            className='mentor-input'
-            onChange={(e) => setFullName(e.target.value)}
-          />
-          <input
-            type='text'
-            placeholder='Position'
-            className='mentor-input'
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <textarea
-            type='text'
-            placeholder='Description'
-            className='mentor-textarea'
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        {displayValidation && (
-          <div className='validation-warning'>
-            * Please ensure all fields are filled in.
-          </div>
+            {displayValidation && (
+              <div className='validation-warning'>
+                * Please ensure all fields are filled in.
+              </div>
+            )}
+
+            <div className='modal-btn'>
+              <button
+                className='modal-action-btn'
+                onClick={() => {
+                  if (validationCheck()) {
+                    onAddMentorSave({
+                      image,
+                      fullName,
+                      title,
+                      description,
+                    })
+                    setDisplayValidation(false)
+                  } else {
+                    setDisplayValidation(true)
+                  }
+                }}
+              >
+                Save
+              </button>
+              <button className='modal-action-btn cancel' onClick={modalToggle}>
+                Cancel
+              </button>
+            </div>
+          </>
         )}
-
-        <div className='modal-btn'>
-          <button
-            className='modal-action-btn'
-            onClick={() => {
-              if (validationCheck()) {
-                onAddMentorSave({
-                  image,
-                  fullName,
-                  title,
-                  description,
-                })
-                setDisplayValidation(false)
-              } else {
-                setDisplayValidation(true)
-              }
-            }}
-          >
-            Save
-          </button>
-          <button className='modal-action-btn cancel' onClick={modalToggle}>
-            Cancel
-          </button>
-        </div>
       </div>
-
       <div className={coverClass} onClick={modalToggle}></div>
     </div>
   )
