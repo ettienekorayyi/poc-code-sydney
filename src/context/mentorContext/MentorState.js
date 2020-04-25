@@ -48,9 +48,15 @@ const MentorState = (props) => {
       })
   }
 
-  const postMentor = (newMentor) => {
-    return api
-      .post('/v1/mentors/', newMentor)
+  const postMentor = ({image, title, description, fullName}) => {
+      const data = new FormData()
+      data.append('image', image)
+      data.append('title', title)
+      data.append('description', description)
+      data.append('fullName', fullName)
+
+      return api
+      .post('/v1/mentors/', data)
       .then((response) => {
         const mentorId = response.data.data.mentor.id
 
