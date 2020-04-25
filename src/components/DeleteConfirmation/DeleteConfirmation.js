@@ -28,9 +28,17 @@ const DeleteConfirmation = ({ mentorName }) => {
       <div className={containerClass}>
         <div>
           {' '}
-          <MdWarning />
+          <MdWarning className='warning-icon' />
         </div>
-        <div>Are you sure you want to delete {mentorName}?</div>
+        <div>
+          Are you sure you want to delete{' '}
+          <span className='deleted-mentor-name'>{mentorName}</span>?
+        </div>
+
+        <div className='deleted-action-group'>
+          <button className='general-button delete-background'>Confirm</button>
+          <button className='general-button cancel-button'>Cancel</button>
+        </div>
       </div>
 
       <div className={coverClass} onClick={modalToggle}></div>
