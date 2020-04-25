@@ -7,6 +7,7 @@ import MentorContext from '../../context/mentorContext/MentorContext'
 import PlaceHolderImage from '../../assets/placeholder_image.png'
 import Loading from '../Loading'
 
+
 const Mentor = () => {
   const { mentor, getMentor, isLoading,deleteMentor } = useContext(MentorContext)
   const { id } = useParams()
@@ -15,11 +16,6 @@ const Mentor = () => {
   useEffect(() => {
     getMentor(id)
   }, [id])
-
-  const onClickDeleteMentor = () => {
-    
-    console.log(id);
-  };
 
   const mentorLocation = location[Math.floor(Math.random() * location.length)]
   const mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${mentorLocation},AU&zoom=15&size=400x250&maptype=roadmap&markers=color:red%7Clabel:M%7C${mentorLocation},AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck`

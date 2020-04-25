@@ -1,0 +1,22 @@
+@media screen and (max-width: 600px) {
+  /* Mobile View */
+  .no-results {
+    text-align: center;
+    margin-top: 80px;
+    width: 300px;
+    margin-left: 30px;
+  }
+
+  .no-search-result {
+    font-size: 60px;
+  }
+
+  .went-wrong {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .sorry {
+    margin-top: 10px;
+  }
+}
