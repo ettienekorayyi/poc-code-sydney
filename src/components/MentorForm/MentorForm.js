@@ -78,7 +78,7 @@ const MentorForm = () => {
 
           {image.preview && (
             <div className='reupload-instructions'>
-              To re-upload, simply press image preview
+              To re-upload a new image, simply press image preview
             </div>
           )}
           <input
