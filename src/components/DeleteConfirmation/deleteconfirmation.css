@@ -4,7 +4,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 1040;
   display: none;
 }
@@ -19,19 +19,19 @@
   border: 1px solid lightgray;
   border-radius: 6px;
   background: white;
-  width: 600px;
+  width: 300px;
   min-height: 300px;
-  left: 50%;
+  left: 90%;
   top: 20%;
   margin-left: -300px;
   display: none;
 }
 
-.delete-modal-container.modal-container-active {
+.delete-modal-container.delete-modal-container-active {
   display: block;
 }
 
-.delete-button {
+.general-button {
   background-color: #355878;
   border: none;
   color: white;

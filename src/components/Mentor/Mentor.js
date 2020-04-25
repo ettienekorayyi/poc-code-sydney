@@ -6,6 +6,7 @@ import { location } from '../../constants'
 import MentorContext from '../../context/mentorContext/MentorContext'
 import PlaceHolderImage from '../../assets/placeholder_image.png'
 import Loading from '../Loading'
+import DeleteConfirmation from '../DeleteConfirmation'
 
 
 const Mentor = () => {
@@ -18,6 +19,8 @@ const Mentor = () => {
   useEffect(() => {
     getMentor(id)
   }, [id])
+
+  console.log(mentor)
 
   const mentorLocation = location[Math.floor(Math.random() * location.length)]
   const mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${mentorLocation},AU&zoom=15&size=400x250&maptype=roadmap&markers=color:red%7Clabel:M%7C${mentorLocation},AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck`
@@ -42,14 +45,15 @@ const Mentor = () => {
 
           <div className='action-buttons'>
             <button className='btn'>Edit</button>
-            <button
+            <DeleteConfirmation mentorName={mentor.fullName} />
+            {/* <button
               className='btn delete'
               onClick={() => {
                 deleteMentor(id)
               }}
             >
               Delete
-            </button>
+            </button> */}
           </div>
 
           <div className='panel'>

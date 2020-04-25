@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './deleteconfirmation.css'
+import { MdWarning } from 'react-icons/md'
 
-const DeleteConfirmation = () => {
+const DeleteConfirmation = ({ mentorName }) => {
   const [modalOpened, setModalOpened] = useState(false)
 
   const modalToggle = () => {
@@ -16,17 +17,24 @@ const DeleteConfirmation = () => {
     : 'delete-modal-container'
 
   return (
-    <div>
-      <button className='delete-button delete-background' onClick={modalToggle}>
+    <>
+      <button
+        className='general-button delete-background'
+        onClick={modalToggle}
+      >
         Delete
       </button>
 
       <div className={containerClass}>
-        ARE YOU FUCKING SURE THAT YOU WANT TO DELETE THIS FUCKING USER?
+        <div>
+          {' '}
+          <MdWarning />
+        </div>
+        <div>Are you sure you want to delete {mentorName}?</div>
       </div>
 
       <div className={coverClass} onClick={modalToggle}></div>
-    </div>
+    </>
   )
 }
 
