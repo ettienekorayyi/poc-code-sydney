@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './deleteconfirmation.css'
 import { MdWarning } from 'react-icons/md'
 
-const DeleteConfirmation = ({ mentorName }) => {
+const DeleteConfirmation = ({ mentorName, deleteMentor, mentorId }) => {
   const [modalOpened, setModalOpened] = useState(false)
 
   const modalToggle = () => {
@@ -36,8 +36,20 @@ const DeleteConfirmation = ({ mentorName }) => {
         </div>
 
         <div className='deleted-action-group'>
-          <button className='general-button delete-background'>Confirm</button>
-          <button className='general-button cancel-button'>Cancel</button>
+          <button
+            className='general-button delete-background'
+            onClick={() => {
+              deleteMentor(mentorId)
+            }}
+          >
+            Confirm
+          </button>
+          <button
+            className='general-button cancel-button'
+            onClick={modalToggle}
+          >
+            Cancel
+          </button>
         </div>
       </div>
 
