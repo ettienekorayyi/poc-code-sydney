@@ -150,4 +150,16 @@
     object-fit: cover;
     border-radius: 50%;
   }
+
+  .validation-warning {
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    color: rgb(172, 11, 11);
+    font-weight: 600;
+  }
+
+  .loading-post-state {
+    margin-top: -100px;
+  }
 }
