@@ -21,6 +21,7 @@ const MentorState = (props) => {
   const [isLoading, setIsLoading] = useState(true)
   const [isLoadingResult, setIsLoadingResult] = useState(true)
   const [filteredMentors, setFilteredMentors] = useState([])
+  const [hasError, setHasError] = useState(false)
   const [state, dispatch] = useReducer(MentorReducer, initialState)
   const [notifier, setNotifier] = useState(false)
 
@@ -30,9 +31,11 @@ const MentorState = (props) => {
       .then((response) => {
         dispatch({ type: GET_MENTORS, payload: response.data.data.mentors })
         setIsLoadingResult(false)
+        setHasError(false)
       })
       .catch((err) => {
         dispatch({ type: MENTORS_ERROR, payload: err })
+        setHasError(true)
       })
   }
 
@@ -42,9 +45,11 @@ const MentorState = (props) => {
       .then((response) => {
         dispatch({ type: GET_MENTOR, payload: response.data.data.mentor })
         setIsLoading(false)
+        setHasError(false)
       })
       .catch((err) => {
         dispatch({ type: MENTORS_ERROR, payload: err })
+        setHasError(true)
       })
   }
 
@@ -104,6 +109,7 @@ const MentorState = (props) => {
         filteredResource,
         setNotifier,
         newResource,
+        hasError, 
         notifier,
         isLoading,
         isLoadingResult,
