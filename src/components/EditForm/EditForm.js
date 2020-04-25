@@ -1,8 +1,12 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import './editform.css'
 
-const EditForm = () => {
+const EditForm = ({ mentor, placeholderImage, photoURL }) => {
   const [modalOpened, setModalOpened] = useState(false)
+
+  const [fullName, setFullName] = useState(mentor.fullName)
+  const [title, setTitle] = useState(mentor.title)
+  const [description, setDescription] = useState(mentor.description)
 
   const modalToggle = () => {
     setModalOpened(!modalOpened)
@@ -24,7 +28,11 @@ const EditForm = () => {
       <div className={containerClass}>
         <div className='modal-body'>
           <div className='upload-section'>
-            {/* <img className='preview-image' src={preview} alt='new-mentor-img' /> */}
+            <img
+              className='preview-image'
+              src={mentor.photo ? photoURL : placeholderImage}
+              alt='new-mentor-img'
+            />
           </div>
           <input type='text' placeholder='Full Name' className='mentor-input' />
           <input type='text' placeholder='Position' className='mentor-input' />
@@ -41,7 +49,6 @@ const EditForm = () => {
           </button>
         </div>
       </div>
-
       <div className={coverClass} onClick={modalToggle}></div>
     </>
   )

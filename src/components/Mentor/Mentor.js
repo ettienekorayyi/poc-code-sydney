@@ -42,7 +42,11 @@ const Mentor = () => {
           </div>
 
           <div className='action-buttons'>
-            <EditForm />
+            <EditForm
+              mentor={mentor}
+              placeholderImage={PlaceHolderImage}
+              photoURL={photoURL}
+            />
             <DeleteConfirmation
               mentorName={mentor.fullName}
               deleteMentor={deleteMentor}
