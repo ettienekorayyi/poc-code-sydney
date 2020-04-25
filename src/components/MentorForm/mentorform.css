@@ -33,7 +33,10 @@
     background: white;
     width: 340px;
     min-height: 300px;
-    left: 82%;
+    /* development */
+    left: 85%;
+    /* production */
+    /* left: 82%; */
     top: 15%;
     margin-left: -300px;
     display: none;
