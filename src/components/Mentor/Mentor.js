@@ -6,7 +6,8 @@ import { location } from '../../constants'
 import MentorContext from '../../context/mentorContext/MentorContext'
 import PlaceHolderImage from '../../assets/placeholder_image.png'
 import Loading from '../Loading'
-
+import DeleteConfirmation from '../DeleteConfirmation'
+import EditForm from '../EditForm'
 
 const Mentor = () => {
   const { mentor, getMentor, isLoading, deleteMentor } = useContext(
@@ -41,15 +42,16 @@ const Mentor = () => {
           </div>
 
           <div className='action-buttons'>
-            <button className='btn'>Edit</button>
-            <button
-              className='btn delete'
-              onClick={() => {
-                deleteMentor(id)
-              }}
-            >
-              Delete
-            </button>
+            <EditForm
+              mentor={mentor}
+              placeholderImage={PlaceHolderImage}
+              photoURL={photoURL}
+            />
+            <DeleteConfirmation
+              mentorName={mentor.fullName}
+              deleteMentor={deleteMentor}
+              mentorId={id}
+            />
           </div>
 
           <div className='panel'>
