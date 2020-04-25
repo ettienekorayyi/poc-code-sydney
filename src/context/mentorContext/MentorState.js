@@ -2,7 +2,14 @@ import React, { useReducer, useState } from 'react'
 import MentorContext from './MentorContext'
 import MentorReducer from './MentorReducer'
 import api from '../../api/mentors-api'
-import { GET_MENTOR, GET_MENTORS, MENTORS_ERROR, DELETED_MENTOR_ERROR, DELETE_MENTOR, POST_MENTOR } from '../types'
+import {
+  GET_MENTOR,
+  GET_MENTORS,
+  MENTORS_ERROR,
+  DELETED_MENTOR_ERROR,
+  DELETE_MENTOR,
+  POST_MENTOR,
+} from '../types'
 
 const MentorState = (props) => {
   const initialState = {
@@ -46,9 +53,15 @@ const MentorState = (props) => {
       })
   }
 
-  const postMentor = (newMentor) => {
-    return api
-      .post('/v1/mentors/', newMentor)
+  const postMentor = ({image, title, description, fullName}) => {
+      const data = new FormData()
+      data.append('image', image)
+      data.append('title', title)
+      data.append('description', description)
+      data.append('fullName', fullName)
+
+      return api
+      .post('/v1/mentors/', data)
       .then((response) => {
         const mentorId = response.data.data.mentor.id
 
@@ -72,9 +85,10 @@ const MentorState = (props) => {
     return api
       .delete(`/v1/mentors/${id}`)
       .then(() => {
+        window.location = `/`
         dispatch({ type: DELETE_MENTOR, payload: id })
-        setIsLoading(false)
-      }).catch((err) => {
+      })
+      .catch((err) => {
         dispatch({ type: DELETED_MENTOR_ERROR, payload: err })
       })
   }

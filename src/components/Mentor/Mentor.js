@@ -9,7 +9,9 @@ import Loading from '../Loading'
 
 
 const Mentor = () => {
-  const { mentor, getMentor, isLoading,deleteMentor } = useContext(MentorContext)
+  const { mentor, getMentor, isLoading, deleteMentor } = useContext(
+    MentorContext
+  )
   const { id } = useParams()
   const photoURL = `https://codesydney-website.s3-ap-southeast-2.amazonaws.com/mentor/${id}.png`
 
@@ -40,7 +42,14 @@ const Mentor = () => {
 
           <div className='action-buttons'>
             <button className='btn'>Edit</button>
-            <button className='btn delete' onClick={() => { deleteMentor(id) } } >Delete</button>
+            <button
+              className='btn delete'
+              onClick={() => {
+                deleteMentor(id)
+              }}
+            >
+              Delete
+            </button>
           </div>
 
           <div className='panel'>
@@ -55,7 +64,7 @@ const Mentor = () => {
             </div>
           </div>
 
-          <div className='panel'>
+          <div className='panel panel-description'>
             <div className='panel-header'>
               <div className='panel-location'>
                 <MdAccountCircle />
