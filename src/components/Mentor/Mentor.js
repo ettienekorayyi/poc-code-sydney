@@ -8,13 +8,18 @@ import PlaceHolderImage from '../../assets/placeholder_image.png'
 import Loading from '../Loading'
 
 const Mentor = () => {
-  const { mentor, getMentor, isLoading } = useContext(MentorContext)
+  const { mentor, getMentor, isLoading,deleteMentor } = useContext(MentorContext)
   const { id } = useParams()
   const photoURL = `https://codesydney-website.s3-ap-southeast-2.amazonaws.com/mentor/${id}.png`
 
   useEffect(() => {
     getMentor(id)
   }, [id])
+
+  const onClickDeleteMentor = () => {
+    
+    console.log(id);
+  };
 
   const mentorLocation = location[Math.floor(Math.random() * location.length)]
   const mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${mentorLocation},AU&zoom=15&size=400x250&maptype=roadmap&markers=color:red%7Clabel:M%7C${mentorLocation},AU&key=AIzaSyBHiJzh1hfL8oF9mbYKc8p3lZieUVbPFck`
@@ -39,7 +44,7 @@ const Mentor = () => {
 
           <div className='action-buttons'>
             <button className='btn'>Edit</button>
-            <button className='btn delete'>Delete</button>
+            <button className='btn delete' onClick={() => { deleteMentor(id) } } >Delete</button>
           </div>
 
           <div className='panel'>
