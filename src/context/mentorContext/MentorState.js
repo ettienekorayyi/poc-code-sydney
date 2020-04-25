@@ -21,7 +21,6 @@ const MentorState = (props) => {
   const [isLoading, setIsLoading] = useState(true)
   const [isLoadingResult, setIsLoadingResult] = useState(true)
   const [filteredMentors, setFilteredMentors] = useState([])
-  const [newMentor, setNewMentor] = useState({})
   const [state, dispatch] = useReducer(MentorReducer, initialState)
   const [notifier, setNotifier] = useState(false)
 
