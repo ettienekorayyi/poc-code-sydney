@@ -94,4 +94,8 @@
   .delete {
     background-color: rgb(172, 11, 11);
   }
+
+  .panel-description {
+    margin-bottom: 20px;
+  }
 }
