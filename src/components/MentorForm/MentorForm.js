@@ -12,7 +12,8 @@ const MentorForm = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [image, setImage] = useState(null)
-  const [ preview, setPreview] = useState('')
+  const [preview, setPreview] = useState('')
+  const [displayValidation, setDisplayValidation] = useState(false)
 
   const modalToggle = () => {
     setModalOpened(!modalOpened)
@@ -33,6 +34,10 @@ const MentorForm = () => {
     const { files } = e.target
     setImage(files[0])
     setPreview(URL.createObjectURL(files[0]))
+  }
+
+  const validationCheck = () => {
+    return fullName !== '' && title !== '' && description !== ''
   }
 
   const coverClass = modalOpened
@@ -95,12 +100,28 @@ const MentorForm = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
+        {displayValidation && (
+          <div className='validation-warning'>
+            * Please ensure all fields are filled in.
+          </div>
+        )}
+
         <div className='modal-btn'>
           <button
             className='modal-action-btn'
-            onClick={() =>
-              onAddMentorSave({ image, fullName, title, description })
-            }
+            onClick={() => {
+              if (validationCheck()) {
+                onAddMentorSave({
+                  image,
+                  fullName,
+                  title,
+                  description,
+                })
+                setDisplayValidation(false)
+              } else {
+                setDisplayValidation(true)
+              }
+            }}
           >
             Save
           </button>
