@@ -2,7 +2,14 @@ import React, { useReducer, useState } from 'react'
 import MentorContext from './MentorContext'
 import MentorReducer from './MentorReducer'
 import api from '../../api/mentors-api'
-import { GET_MENTOR, GET_MENTORS, MENTORS_ERROR, DELETED_MENTOR_ERROR, DELETE_MENTOR, POST_MENTOR } from '../types'
+import {
+  GET_MENTOR,
+  GET_MENTORS,
+  MENTORS_ERROR,
+  DELETED_MENTOR_ERROR,
+  DELETE_MENTOR,
+  POST_MENTOR,
+} from '../types'
 
 const MentorState = (props) => {
   const initialState = {
@@ -14,7 +21,6 @@ const MentorState = (props) => {
   const [isLoading, setIsLoading] = useState(true)
   const [isLoadingResult, setIsLoadingResult] = useState(true)
   const [filteredMentors, setFilteredMentors] = useState([])
-  const [newMentor, setNewMentor] = useState({})
   const [state, dispatch] = useReducer(MentorReducer, initialState)
   const [notifier, setNotifier] = useState(false)
 
@@ -68,9 +74,10 @@ const MentorState = (props) => {
     return api
       .delete(`/v1/mentors/${id}`)
       .then(() => {
+        window.location = `/`
         dispatch({ type: DELETE_MENTOR, payload: id })
-        setIsLoading(false)
-      }).catch((err) => {
+      })
+      .catch((err) => {
         dispatch({ type: DELETED_MENTOR_ERROR, payload: err })
       })
   }

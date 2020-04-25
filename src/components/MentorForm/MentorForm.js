@@ -23,7 +23,6 @@ const MentorForm = () => {
 
   const onAddMentorSave = (newMentor) => {
     newResource(newMentor)
-    modalToggle()
   }
 
   const removePhotoPreview = () => {
@@ -47,8 +46,6 @@ const MentorForm = () => {
   const containerClass = modalOpened
     ? 'modal-container modal-container-active'
     : 'modal-container'
-
-
 
   return (
     <div>
