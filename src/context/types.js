@@ -4,6 +4,7 @@ export const DELETE_MENTOR = 'DELETE_MENTOR'
 export const DELETED_MENTOR_ERROR = 'DELETED_MENTOR_ERROR'
 export const MENTORS_ERROR = 'MENTORS_ERROR'
 export const POST_MENTOR = 'POST_MENTOR'
+export const PUT_MENTOR = 'PUT_MENTOR'
 
 export const OPTION_NAME = 'name'
 export const OPTION_TITLE = 'title'

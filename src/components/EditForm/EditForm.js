@@ -1,15 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import MentorContext from '../../context/mentorContext/MentorContext'
 import './editform.css'
+import { useParams } from 'react-router-dom'
 
 const EditForm = ({ mentor, placeholderImage, photoURL }) => {
   const [modalOpened, setModalOpened] = useState(false)
-
+  const { editMentor } = useContext(MentorContext)
+  const id = useParams()
   const [fullName, setFullName] = useState(mentor.fullName)
   const [title, setTitle] = useState(mentor.title)
   const [description, setDescription] = useState(mentor.description)
+  const [displayValidation, setDisplayValidation] = useState(false)
 
   const modalToggle = () => {
     setModalOpened(!modalOpened)
+  }
+
+  const validationCheck = () => {
+    return fullName !== '' && title !== '' && description !== ''
   }
 
   const coverClass = modalOpened
@@ -56,8 +64,25 @@ const EditForm = ({ mentor, placeholderImage, photoURL }) => {
             value={description}
           />
         </div>
+        {displayValidation && (
+          <div className='edit-validation-warning'>
+            * Please ensure all fields are filled in.
+          </div>
+        )}
         <div className='modal-btn'>
-          <button className='modal-action-btn'>Save</button>
+          <button
+            className='modal-action-btn'
+            onClick={() => {
+              if (validationCheck()) {
+                editMentor(id.id, title, description, fullName)
+                setDisplayValidation(false)
+              } else {
+                setDisplayValidation(true)
+              }
+            }}
+          >
+            Save
+          </button>
           <button className='modal-action-btn cancel' onClick={modalToggle}>
             Cancel
           </button>
