@@ -77,4 +77,13 @@
     font-weight: 600;
     width: 90px;
   }
+
+  .edit-validation-warning {
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    text-align: left;
+    color: rgb(172, 11, 11);
+    font-weight: 600;
+  }
 }
