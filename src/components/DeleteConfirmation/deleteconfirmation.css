@@ -24,7 +24,10 @@
     background: white;
     width: 300px;
     min-height: 180px;
+    /* development */
     left: 90%;
+    /* production */
+    /* left: 87%; */
     top: 20%;
     margin-left: -300px;
     display: none;
