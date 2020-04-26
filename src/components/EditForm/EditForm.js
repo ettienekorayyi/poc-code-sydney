@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
+import MentorContext from '../../context/mentorContext/MentorContext'
 import './editform.css'
+import { useParams } from 'react-router-dom'
 
 const EditForm = ({ mentor, placeholderImage, photoURL }) => {
   const [modalOpened, setModalOpened] = useState(false)
-
+  const { editMentor } = useContext(MentorContext)
+  const id = useParams();
   const [fullName, setFullName] = useState(mentor.fullName)
   const [title, setTitle] = useState(mentor.title)
   const [description, setDescription] = useState(mentor.description)
@@ -11,7 +14,7 @@ const EditForm = ({ mentor, placeholderImage, photoURL }) => {
   const modalToggle = () => {
     setModalOpened(!modalOpened)
   }
-
+  
   const coverClass = modalOpened
     ? 'edit-modal-cover edit-modal-cover-active'
     : 'modal-cover'
@@ -57,7 +60,9 @@ const EditForm = ({ mentor, placeholderImage, photoURL }) => {
           />
         </div>
         <div className='modal-btn'>
-          <button className='modal-action-btn'>Save</button>
+          <button 
+            className='modal-action-btn' 
+            onClick={ () => { editMentor(id.id, title, description, fullName)} }>Save</button>
           <button className='modal-action-btn cancel' onClick={modalToggle}>
             Cancel
           </button>

@@ -9,7 +9,8 @@ import {
   DELETED_MENTOR_ERROR,
   DELETE_MENTOR,
   POST_MENTOR,
-} from '../types'
+  PUT_MENTOR
+} from '../../context/types'
 
 const MentorState = (props) => {
   const initialState = {
@@ -97,6 +98,25 @@ const MentorState = (props) => {
       })
   }
 
+  const editMentor = (mentorId, title, description, fullName) => {
+    const mentor = {
+      id: mentorId,
+      title: title,
+      fullName: fullName,
+      description: description
+    };
+    
+    return api
+      .put(`/v1/mentors/${mentorId}`, mentor)
+      .then(() => {
+        window.location = `/`
+        dispatch({ type: PUT_MENTOR, payload: mentorId })
+      })
+      .catch((err) => {
+        dispatch({ type: MENTORS_ERROR, payload: err })
+      })
+  }
+
   const filteredResource = (list) => {
     setFilteredMentors(list)
   }
@@ -113,6 +133,7 @@ const MentorState = (props) => {
         filteredResource,
         setNotifier,
         newResource,
+        editMentor,
         hasError,
         notifier,
         isLoading,
