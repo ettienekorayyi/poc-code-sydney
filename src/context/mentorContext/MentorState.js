@@ -9,7 +9,7 @@ import {
   DELETED_MENTOR_ERROR,
   DELETE_MENTOR,
   POST_MENTOR,
-  PUT_MENTOR
+  PUT_MENTOR,
 } from '../../context/types'
 
 const MentorState = (props) => {
@@ -103,13 +103,13 @@ const MentorState = (props) => {
       id: mentorId,
       title: title,
       fullName: fullName,
-      description: description
-    };
-    
+      description: description,
+    }
+
     return api
       .put(`/v1/mentors/${mentorId}`, mentor)
       .then(() => {
-        window.location = `/`
+        window.location = `/mentor/${mentorId}`
         dispatch({ type: PUT_MENTOR, payload: mentorId })
       })
       .catch((err) => {
